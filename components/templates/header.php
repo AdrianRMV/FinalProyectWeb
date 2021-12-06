@@ -4,4 +4,4 @@
 <title>Login</title>
 <link rel="stylesheet" href="/src/css/login-estilos.css">
 <link rel="stylesheet" href="/src/css/button-login.css">
-<link rel="stylesheet" href="/src/css/registrer-estilos.css">
+<link rel="stylesheet" href="/src/css/register-estilos.css">

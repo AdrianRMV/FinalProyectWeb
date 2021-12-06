@@ -22,12 +22,27 @@
       flex-direction: column;
       justify-content: space-evenly;
       position: relative;
-      transition: transform 1s;
+      transition: transform 0.8s;
       transform: translateY(0%);
+      border-radius: 10px;
 }
 
 .modal-close {
       transform: translateY(-200%);
+}
+
+.close {
+      position: absolute;
+      top: 1px;
+      right: 15px;
+      display:inline-block;
+      width: 25px;
+      height: 25px;
+      background-color: #c44a4a;
+      color: #fff;
+      line-height: 25px;
+      cursor: pointer;
+      border-radius: 50%;
 }
 
 .modal>img {
