@@ -2,14 +2,17 @@
 
 
 :root {
+      /* Paleta de colores principal */
       --login-bg: #f8f3ff;
       --title-bg:#6b8cce;
       --button-bg:#0c4483;
       --light-pink: #0c3483;
       --image-bg:#a2b6ef;
+
+      /* Paleta de colores MODO ADMIN */
 }
 
-body {
+.login-body {
       height: 100vh;
       font-family: 'Poppins', sans-serif;
       background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);

@@ -1,9 +1,16 @@
+<?php
+  include_once($_SERVER["DOCUMENT_ROOT"]."/api/controllers/User.php");
+  $userController = new User(false);
+  if($userController->isLoggedIn()) {
+    header("Location: /perfil.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-      <?php include_once($_SERVER["DOCUMENT_ROOT"]."/components/templates/header.php")?>
+      <?php include_once($_SERVER["DOCUMENT_ROOT"]."/components/templates/head.php")?>
 </head>
-<body>
+<body class="login-body">
       <?php
             include_once($_SERVER["DOCUMENT_ROOT"]."/components/login.php");
             include_once($_SERVER["DOCUMENT_ROOT"]."/components/registrer.php");
