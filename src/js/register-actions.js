@@ -1,7 +1,8 @@
-let cerrar = document.querySelectorAll('.close')[0];
-let abrir = document.querySelectorAll(".register-modal")[0];
-let modal = document.querySelectorAll('.modal')[0];
-let modalC = document.querySelectorAll(".modal-container")[0];
+const cerrar = document.querySelectorAll('.close')[0];
+const abrir = document.querySelectorAll(".register-modal")[0];
+const modal = document.querySelectorAll('.modal')[0];
+const modalC = document.querySelectorAll(".modal-container")[0];
+const inputsRegistro = document.querySelectorAll("input");
 
 abrir.addEventListener("click", function (event) {
       event.preventDefault();
@@ -17,15 +18,21 @@ cerrar.addEventListener("click", function () {
             modalC.style.opacity = "0";
             modalC.style.visibility = "hidden";
       }, 500);
+
+      // // Borra los inputs
+      for (let i = 0; i < inputsRegistro.length; i++) {
+            inputsRegistro[i].value = "";
+      }
+      
 });
 
 // Por si el usuario da click fuera del modal
-window.addEventListener("click", function (event) {
-      if (event.target == modalC) {
-            modal.classList.toggle("modal-close");
-            setTimeout(function () {
-                  modalC.style.opacity = "0";
-                  modalC.style.visibility = "hidden";
-            }, 500);
-      }
-});
+// window.addEventListener("click", function (event) {
+//       if (event.target == modalC) {
+//             modal.classList.toggle("modal-close");
+//             setTimeout(function () {
+//                   modalC.style.opacity = "0";
+//                   modalC.style.visibility = "hidden";
+//             }, 500);
+//       }
+// });

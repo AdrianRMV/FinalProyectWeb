@@ -14,13 +14,13 @@
 }
 
 .modal {
-      width: 40%;
-      height: 50%;
+      width: 25%;
+      height: 50vh;
       background-color: #fff;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       position: relative;
       transition: transform 0.8s;
       transform: translateY(0%);
@@ -35,7 +35,7 @@
       position: absolute;
       top: 1px;
       right: 15px;
-      display:inline-block;
+      display: inline-block;
       width: 25px;
       height: 25px;
       background-color: #c44a4a;
@@ -47,4 +47,20 @@
 
 .modal>img {
       height: 50%;
+}
+
+.registro-inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+#nombre-usuario, #apellidos-usuario, #correo, #contra, #password-confirm, #date {
+      width: 80%;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding-left: 10px;
 }

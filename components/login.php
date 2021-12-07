@@ -2,9 +2,9 @@
       <div class="login-info-container">
             <form class="inputs-container">
                   <h1 class="login-title">Login</h1>
-                  <input type="text" placeholder="Usuario" id="email" required>
+                  <input type="email" placeholder="Usuario" id="email" required>
                   <input type="password" placeholder="Contraseña" id="password" required>
-                  <button> Entrar</button>
+                  <button id="btn-login"> Entrar</button>
             </form>
             <p>No tienes una cuenta?</p>
             <a href="#" class="register-modal">Registrate</a>
