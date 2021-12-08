@@ -1,0 +1,76 @@
+.sideContainer{
+    float:right;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+    display:flex;
+    
+    
+    width: 30vw;
+    height: 95vh;
+    background:rgba(242, 247, 255);
+}
+
+.title2{
+    padding: 10px 0;
+    color: #4D4D4D;
+    text-align: center;
+    font-size: 42px;
+    
+}
+
+hr.solid {
+    border: 1px solid #BBBBBB;
+    margin: 0 1vw;
+  }
+
+
+.subtitle {
+    padding: 10px 0;
+    padding-left: 1vw;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.textBox{
+    margin: 0 2vw;
+    margin-bottom: 3vh;
+    padding-left: 10px;
+    width: 25vw;
+    height: 4vh;
+    background: #FFFFFF;
+    color: #868686;
+    border: 1px solid #616161;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.textBox-desc{
+    padding-bottom: 12vh;
+    height: 16vh;
+}
+
+.confirmarBtn{
+    margin: 0 5vw;
+    margin-top: 3vh;
+    width: 20vw;
+
+    font-weight: lighter;
+    font-size: 36px;
+    line-height: 54px;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+
+    background: #A2B6EF;
+    border: none;
+    border-radius: 20px;
+}
+
+.confirmarBtn:hover{
+    background: #6B8CCE
+}

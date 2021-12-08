@@ -12,3 +12,6 @@
 <link rel="stylesheet" href="/src/css/login-estilos.css">
 <link rel="stylesheet" href="/src/css/button-login.css">
 <link rel="stylesheet" href="/src/css/register-estilos.css">
+<link rel="stylesheet" href="/src/css/navbar-estilos.css">
+<link rel="stylesheet" href="/src/css/map-estilos.css">
+<link rel="stylesheet" href="/src/css/sidebar-estilos.css">

@@ -7,9 +7,9 @@ const  $nombre                       = document.querySelector('#nombre');
             $btnRegistro                 = document.querySelector('#btn-registrar');
 
             //Modal de registro
-            $modal2                        = document.querySelectorAll('.modal')[0];         
-            $modalC2                     = document.querySelectorAll(".modal-container")[0];
-            inputsRegistro2              = document.querySelectorAll("input");
+            // $modal2                        = document.querySelectorAll('.modal')[0];         
+            // $modalC2                     = document.querySelectorAll(".modal-container")[0];
+            // inputsRegistro2              = document.querySelectorAll("input");
 
 
 $btnRegistro.addEventListener("click", (e) => {
