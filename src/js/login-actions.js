@@ -1,12 +1,11 @@
 const  $email              = document.querySelector('#email');
              $password     = document.querySelector('#password');
-             $btnRegistrar = document.querySelector('#btn-login');
+             $btnLogin       = document.querySelector('#btn-login');
 
 
 
-$btnRegistrar.addEventListener("click", (event)=>{
+$btnLogin.addEventListener("click", (event)=>{
       event.preventDefault();
-      console.log($email.value);
       const  data = new FormData();
       data.append('email', $email.value);
       data.append('password', $password.value);

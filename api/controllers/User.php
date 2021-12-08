@@ -7,6 +7,36 @@ class User extends Controller{
   function isLoggedIn() {
     return isset($_SESSION["user"]);
   }
+
+  function  register(){
+    $response = [ ];
+      if (isset($_POST["nombre"]) && isset($_POST["apellidoP"])&& isset($_POST["apellidoM"] )&& isset($_POST["email"]) && isset($_POST["contra"])) {
+      
+            $nombre = $_POST["nombre"];
+            $apellidoP = $_POST["apellidoP"];
+            $apellidoM = $_POST["apellidoM"];
+            $correo = $_POST["email"];
+            $contra = $_POST["contra"];
+
+            $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
+
+            $query = $this->db->post($insert);
+
+            if ($query){
+              echo 
+                      "<script> alert('correcto);
+                        location.href='/hola.php';
+                      </script>";
+            }
+      } else {
+        $this->code = 400;
+        $response = [
+          "message" => "Faltan datos",
+        ];
+      }
+   return $response;
+  }
+
   function login() {
     $response = [];
     if($this->isLoggedIn()) {
