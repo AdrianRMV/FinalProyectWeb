@@ -6,8 +6,8 @@
                   <input type="password" placeholder="Contraseña" id="password" required>
                   <button id="btn-login" class="loginBtn"> Entrar</button>
             </form>
-            <p>No tienes una cuenta?</p>
-            <a href="#" class="register-modal">Registrate</a>
+            <p>¿No tienes una cuenta?</p>
+            <a href="#" class="register-modal" >Registrate</a>
       </div>
       <img class="imagenLogin" src="/src/images/UDsecurity.svg" alt="login">
 </div>

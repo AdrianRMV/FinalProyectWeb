@@ -1,47 +1,62 @@
-// const  $nombre                       = document.querySelector('#nombre-usuario');
-//             $apellidoPaterno         = document.querySelector('#apellido-paterno');
-//             $apellidoMaterno        = document.querySelector('#apellido-materno');
-//             $correo                          = document.querySelector('#correo');
-//             $contrasena                  = document.querySelector('#password-user');
-//             $confirmPassword      = document.querySelector('#password-confirm');
-//             $btnRegistro                 = document.querySelector('#btn-registrar');
+const  $nombre                       = document.querySelector('#nombre');
+            $apellidoPaterno         = document.querySelector('#apellidoPaterno');
+            $apellidoMaterno        = document.querySelector('#apellidoMaterno');
+            $correo                          = document.querySelector('#correo');
+            $contrasena                  = document.querySelector('#contrasena');
+            $confirmPassword      = document.querySelector('#confirmPassword');
+            $btnRegistro                 = document.querySelector('#btn-registrar');
 
-// $btnRegistro.addEventListener("submit", (e) => {
-      
-//       e.preventDefault();
+            //Modal de registro
+            $modal2                        = document.querySelectorAll('.modal')[0];         
+            $modalC2                     = document.querySelectorAll(".modal-container")[0];
+            inputsRegistro2              = document.querySelectorAll("input");
 
 
-//       if ($contrasena.value === $confirmPassword.value) {
-//             const  data = new FormData();
-//             data.append('nombre', $nombre.value);
-//             data.append('apellidoPaterno', $apellidoPaterno.value);
-//             data.append('apellidoMaterno', $apellidoMaterno.value);
-//             data.append('password', $password.value);
+$btnRegistro.addEventListener("click", (e) => {
+      e.preventDefault();
+      if ($contrasena.value === $confirmPassword.value) {
+            const  data = new FormData();
+            data.append('nombre', $nombre.value);
+            data.append('apellidoPaterno', $apellidoPaterno.value);
+            data.append('apellidoMaterno', $apellidoMaterno.value);
+            data.append('correo', $correo.value);
+            data.append('contrasena', $contrasena.value);
       
-//             axios({
-//                   method: 'POST',
-//                   url: "/api/user/register.php",
-//                   data,
-//                   headers: {
-//                         "Content-Type": "multipart/form-data"
-//                   },
-//             })
-//             .then((response)=>{
-//                   if (response.status === 200){
-//                         console.log("Salio todo bien capo");
-//                         location.href = '/hola.php';
-//                   } else {
-//                         alert(response.data.message);
-//                   }
-//             })
-//             .catch((error)=>{
-//                   if (error.response){
-//                         console.log(error.response);
-//                         alert(error.response.data.message);
-//                   }
-//             });
-//       }else {
-//             alert('Las contraseñas no coinciden');
-//       }
+            axios({
+                  method: 'POST',
+                  url: "/api/user/register.php",
+                  data,
+                  headers: {
+                        "Content-Type": "multipart/form-data"
+                  },
+            })
+            .then((response)=>{
+                  if (response.status === 200){
+                        // Cierra el modal
+                        modal.classList.toggle("modal-close");
+                        setTimeout(function () {
+                              modalC.style.opacity = "0";
+                              modalC.style.visibility = "hidden";
+                        }, 500);
+                  
+                        // // Borra los inputs
+                        for (let i = 0; i < inputsRegistro.length; i++) {
+                              inputsRegistro[i].value = "";
+                        }
+                        
+                        console.log(response.data);
+                  } else {
+                        alert(response.data.message);
+                  }
+            })
+            .catch((error)=>{
+                  if (error.response){
+                        console.log(error.response);
+                        alert(error.response.data.message);
+                  }
+            });
+      }else {
+            alert('Las contraseñas no coinciden');
+      }
       
-// });
+});

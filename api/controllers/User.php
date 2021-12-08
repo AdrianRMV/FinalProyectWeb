@@ -1,45 +1,55 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"]."/api/controllers/Controller.php");
-class User extends Controller{
-  function __construct($jsonResponse = true) {
+include_once($_SERVER["DOCUMENT_ROOT"] . "/api/controllers/Controller.php");
+class User extends Controller
+{
+  function __construct($jsonResponse = true)
+  {
     parent::__construct($jsonResponse);
   }
-  function isLoggedIn() {
+  function isLoggedIn()
+  {
     return isset($_SESSION["user"]);
   }
 
-  function  register(){
-    $response = [ ];
-      if (isset($_POST["nombre"]) && isset($_POST["apellidoP"])&& isset($_POST["apellidoM"] )&& isset($_POST["email"]) && isset($_POST["contra"])) {
-      
-            $nombre = $_POST["nombre"];
-            $apellidoP = $_POST["apellidoP"];
-            $apellidoM = $_POST["apellidoM"];
-            $correo = $_POST["email"];
-            $contra = $_POST["contra"];
+  function  register()
+  {
+    $response = [];
+    if (isset($_POST["nombre"]) && isset($_POST["apellidoPaterno"]) && isset($_POST["apellidoMaterno"]) && isset($_POST["correo"]) && isset($_POST["contrasena"])) {
 
-            $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
+      $nombre = $_POST["nombre"];
+      $apellidoP = $_POST["apellidoPaterno"];
+      $apellidoM = $_POST["apellidoMaterno"];
+      $correo = $_POST["correo"];
+      $contra = $_POST["contrasena"];
 
-            $query = $this->db->post($insert);
+      $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
 
-            if ($query){
-              echo 
-                      "<script> alert('correcto);
-                        location.href='/hola.php';
-                      </script>";
-            }
-      } else {
-        $this->code = 400;
+      $query = $this->db->post($insert);
+
+      if ($query) {
         $response = [
-          "message" => "Faltan datos",
+          "message" => "Usuario registrado correctamente"
+        ];
+      } else {
+        $this -> code = 400;
+        $response = [
+          "message" => "Error al registro"
         ];
       }
-   return $response;
+    } else {
+      $this -> code = 400;
+      $response = [
+        "message" => "Faltan datos",
+        "Mira" => "me la pelas xd"
+      ];
+    }
+    return $response;
   }
 
-  function login() {
+  function login()
+  {
     $response = [];
-    if($this->isLoggedIn()) {
+    if ($this->isLoggedIn()) {
       $this->code = 401;
       $response = [
         "message" => "Usted ya tiene una sesión activa"
@@ -70,7 +80,8 @@ class User extends Controller{
     }
     return $response;
   }
-  function logout() {
+  function logout()
+  {
     $response = [];
     try {
       session_destroy();

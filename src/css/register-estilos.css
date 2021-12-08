@@ -56,7 +56,7 @@
       align-items: center;
 }
 
-#nombre-usuario, #apellido-paterno,#apellido-materno, #correo, #password-user, #password-confirm, #date {
+#nombre, #apellidoPaterno,#apellidoMaterno, #correo, #contrasena, #confirmPassword{
       width: 80%;
       height: 40px;
       border-radius: 5px;

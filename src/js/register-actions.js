@@ -25,14 +25,3 @@ cerrar.addEventListener("click", function () {
       }
       
 });
-
-// Por si el usuario da click fuera del modal
-// window.addEventListener("click", function (event) {
-//       if (event.target == modalC) {
-//             modal.classList.toggle("modal-close");
-//             setTimeout(function () {
-//                   modalC.style.opacity = "0";
-//                   modalC.style.visibility = "hidden";
-//             }, 500);
-//       }
-// });
