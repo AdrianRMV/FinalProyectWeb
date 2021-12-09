@@ -16,8 +16,9 @@
              include_once($_SERVER["DOCUMENT_ROOT"]."/components/mapbox.php");
              include_once($_SERVER["DOCUMENT_ROOT"]."/components/sidebar.php");
       ?>
+      
+      <script src="/src/js/logout.js"></script>
+      <script src="/src/js/login.js"></script>
 
-      <!-- // webos
- -->
 </body>
 </html>
