@@ -120,6 +120,58 @@ class User extends Controller
     return $response;
   }
 
+  function report()
+  {
+    $response = [];
+    if (isset($_POST['titulo']) && isset($_POST['descripcion'])) {
+      
+      $titulo = $_POST['titulo'];
+      $descripcion = $_POST['descripcion'];
 
-  
+      $insert = "INSERT INTO reportes (titulo, descripcion) VALUES ('$titulo', '$descripcion')";
+
+      $query = $this->db->post($insert);
+
+      if ($query) {
+        $response = [
+          "message" => "Reporte enviado correctamente"
+        ];
+      } else {
+        $this -> code = 400;
+        $response = [
+          "message" => "Error al enviar reporte"
+        ];
+      }
+    } else {
+      $this -> code = 400;
+      $response = [
+        "message" => "Faltan datos",
+      ];
+    }
+    return $response;
+    }
+
+    function retrieve(){
+      /* if (isset($_POST["titulo"]) && isset($_POST["descripcion"])) {
+        
+        $titulo = $_POST["titulo"];
+        $descripcion =  $_POST["descripcion"]; */
+        
+        $query = $this->db->get("SELECT titulo, descripcion FROM reportes WHERE usuario_id = 1");
+        
+        if ($query) {
+          $response = [
+            "data" => $query,
+            "message" => "Datos extraidos correctamente",
+          ];
+        } else {
+          // No es correcto
+          $this->code = 400;
+          $response = [
+            "message" => "Error al traer datos",
+          ];
+        }
+      //}
+      return $response;
+    }
 }
