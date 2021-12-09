@@ -20,7 +20,7 @@ $btnLogin.addEventListener("click", (event)=>{
       })
       .then((response)=>{
             if (response.status === 200){
-                  location.href = '/perfil.php';
+                  location.href = '/index.php';
             } else {
                   alert(response.data.message);
             }
