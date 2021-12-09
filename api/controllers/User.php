@@ -11,6 +11,9 @@ class User extends Controller
     return isset($_SESSION["user"]);
   }
 
+  function isAdmin(){
+    return  isset($_SESSION["rol"]) && $_SESSION["rol"] == 1;
+  }
 
   function  register()
   {
@@ -22,6 +25,7 @@ class User extends Controller
       $apellidoM = $_POST["apellidoMaterno"];
       $correo = $_POST["correo"];
       $contra = $_POST["contrasena"];
+      $id_rol = 1; // 1 es usuario normal, 2 es administrador
 
       $cuentaRegistrado = $this->db->get("SELECT  email FROM usuario WHERE email = '$correo' ");
 
@@ -31,7 +35,7 @@ class User extends Controller
           "message" => "Este correo ya esta registrado"
         ];
       }else {
-        $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
+        $insert = "INSERT INTO usuario (id_rol,name, lastname_one, lastname_two, email, password) VALUES ('$id_rol','$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
 
       $query = $this->db->post($insert);
 
@@ -60,31 +64,29 @@ class User extends Controller
         "message" => "Usted ya tiene una sesión activa"
       ];
     } else if (isset($_POST["email"]) && isset($_POST["password"])) {
+
       $email = $_POST["email"];
       $password =  $_POST["password"];
 
-      $user = $this->db->get("SELECT id, name, lastname_one,lastname_two, email,role FROM usuario WHERE email = '$email' AND password = '$password' LIMIT 1");
-
+      $user = $this->db->get("SELECT * FROM usuario WHERE email = '$email' AND password = '$password' LIMIT 1");
       // Usuario existe
       if (count($user) > 0) {
         // Si es correcto
         $_SESSION["user"] = $user[0]->id;
 
         // Para saber si es admin
-
-        /* $_SESSION["role"] = $user[0]->role;
-        // if ($user[0]->id==1) {
-        //   $this->code = 100;
-        //   $response = [
-        //     "message" => "Bienvenido admin",
-        //   ];
-         } 
-         */
-        $response = [
-          "data" => $user[0],
-          "message" => "Ha iniciado sesión con éxito.",
-        ];
+        $_SESSION["rol"] = $user[0]->id_rol;
         
+        if($_SESSION["rol"]== 1){
+              $this->code = 100;
+                $response = [
+                    "message" => "Bienvenido Administrador",
+                ];
+        }else {
+                $response = [
+                    "message" => "Bienvenido Usuario",
+                ];
+        }
       } else {
         // No es correcto
         $this->code = 401;
