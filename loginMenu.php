@@ -6,10 +6,7 @@
   }else if($userController->isLoggedIn()){
       header("Location: /index.php");
   }
-  
-
-      
-  
+   
 ?>
 <!DOCTYPE html>
 <html lang="es">

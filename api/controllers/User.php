@@ -25,7 +25,7 @@ class User extends Controller
       $apellidoM = $_POST["apellidoMaterno"];
       $correo = $_POST["correo"];
       $contra = $_POST["contrasena"];
-      $id_rol = 1; // 1 es usuario normal, 2 es administrador
+      $id_rol = 2; // predeterminado rol usuario = 1
 
       $cuentaRegistrado = $this->db->get("SELECT  email FROM usuario WHERE email = '$correo' ");
 

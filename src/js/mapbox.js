@@ -12,6 +12,13 @@
       zoom: 12.5,
     });
 
+    // map.addControl(new.mapboxgl.GeolocateControl({
+    //   positionOption: {
+    //     enableHighAccuracy: true
+    //   }, 
+    //   trackUserLocation: true
+    // }))
+
     // Crea el marcador en la posición actual
     const  marker = new mapboxgl.Marker({
       draggable: true,
