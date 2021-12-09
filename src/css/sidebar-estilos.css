@@ -8,9 +8,10 @@
     flex-direction: column;
     display:flex;
     
+    align-items: center;
     
-    width: 30vw;
-    height: 95vh;
+    width: 30%;
+    height: 95%;
     background:rgba(242, 247, 255);
 }
 
@@ -51,6 +52,18 @@ hr.solid {
 .textBox-desc{
     padding-bottom: 12vh;
     height: 16vh;
+}
+
+.subtitle-advise{
+    position: relative;
+    align-items: center;
+    text-align: center;
+}
+
+.large-icon{
+    padding-top: 50%;
+    width:240px;
+    height:240px;
 }
 
 .confirmarBtn{

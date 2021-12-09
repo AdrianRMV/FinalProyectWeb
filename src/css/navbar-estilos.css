@@ -16,6 +16,24 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.verReporte  {
+    padding: 0 1vw;
+    margin: 0 1vw;
+    width: 13vw;
+    height: 3vh;
+    text-align: center;
+    font-size: 18px;
+    color:#FFFFFF;
+    border: none;
+    background: #315bb1;
+    border-radius: 15px;
+} 
+
+.verReporte:hover{
+    border:none;
+    background: #0a3668;
+}
+
 .title {
     flex-grow: 2;
     padding-left: 2vw;
@@ -36,28 +54,49 @@
     height: 3vh;
     width: 13vw;
     color: #FFFFFF;
-    background: #6B8CCE;
+    background: #315bb1;
     border: none;
     border-radius: 15px;
 }
 
-.navBtn:hover{
+.generarReporte:hover{
     border:none;
     background: #777777
 }
 
+#logoutBtn{
+    margin-right: 1vw;
+
+    text-align: center;
+    font-size: 18px;
+    height: 3vh;
+    width: 13vw;
+    color: #FFFFFF;
+    background: #d63535;
+    border: none;
+    border-radius: 15px;
+}
+
+#logoutBtn:hover{
+    border:none;
+    background: #940606
+}
+
 #iniciarBtn{
     padding: 0 1vw;
-    margin-right: 3vw;
+    margin-right: 1vw;
     text-align: center;
-    font-size: 16px;
-    line-height: 36px;
-    color:#FFFFFF;
+    height: 3vh;
+    width: 18vw;
+    font-size: 18px;
+    color:#424242;
+    background: #ffc813;
     border: none;
-    background: none;
+    border-radius: 15px;
 }
 
 #iniciarBtn:hover{
     border:none;
+    color: #FFFFFF;
     background: #292929;
 }

@@ -19,6 +19,7 @@
       
       <script src="/src/js/logout.js"></script>
       <script src="/src/js/login.js"></script>
+      <script src="/src/js/sidebar-actions.js"></script>
 
 </body>
 </html>
