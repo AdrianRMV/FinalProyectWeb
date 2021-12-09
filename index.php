@@ -1,9 +1,7 @@
 <?php
       include_once($_SERVER["DOCUMENT_ROOT"]."/api/controllers/User.php");
       $userController = new User(false);
-      /* if($userController->isLoggedIn()) {
-        header("Location: /perfil.php");
-      } */
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

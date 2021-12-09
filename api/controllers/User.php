@@ -22,7 +22,15 @@ class User extends Controller
       $correo = $_POST["correo"];
       $contra = $_POST["contrasena"];
 
-      $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
+      $cuentaRegistrado = $this->db->get("SELECT  email FROM usuario WHERE email = '$correo' ");
+
+      if (count($cuentaRegistrado)>0){
+        $this -> code = 418;
+        $response = [
+          "message" => "Este correo ya esta registrado"
+        ];
+      }else {
+        $insert = "INSERT INTO usuario (name, lastname_one, lastname_two, email, password) VALUES ('$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
 
       $query = $this->db->post($insert);
 
@@ -36,14 +44,10 @@ class User extends Controller
           "message" => "Error al registro"
         ];
       }
-    } else {
-      $this -> code = 400;
-      $response = [
-        "message" => "Faltan datos",
-        "Mira" => "me la pelas xd"
-      ];
     }
     return $response;
+      }
+      
   }
 
   function login()
