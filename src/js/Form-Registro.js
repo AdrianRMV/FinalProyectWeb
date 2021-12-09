@@ -6,12 +6,6 @@ const  $nombre                       = document.querySelector('#nombre');
             $confirmPassword      = document.querySelector('#confirmPassword');
             $btnRegistro                 = document.querySelector('#btn-registrar');
 
-            //Modal de registro
-            $modal2                        = document.querySelectorAll('.modal')[0];         
-            $modalC2                     = document.querySelectorAll(".modal-container")[0];
-            $inputsRegistro2              = document.querySelectorAll("input");
-
-
 $btnRegistro.addEventListener("click", (e) => {
       e.preventDefault();
       if ($contrasena.value === $confirmPassword.value) {

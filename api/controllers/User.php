@@ -11,6 +11,7 @@ class User extends Controller
     return isset($_SESSION["user"]);
   }
 
+
   function  register()
   {
     $response = [];
@@ -61,14 +62,29 @@ class User extends Controller
     } else if (isset($_POST["email"]) && isset($_POST["password"])) {
       $email = $_POST["email"];
       $password =  $_POST["password"];
-      $user = $this->db->get("SELECT id, name, lastname_one,lastname_two, email FROM usuario WHERE email = '$email' AND password = '$password' LIMIT 1");
+
+      $user = $this->db->get("SELECT id, name, lastname_one,lastname_two, email,role FROM usuario WHERE email = '$email' AND password = '$password' LIMIT 1");
+
+      // Usuario existe
       if (count($user) > 0) {
         // Si es correcto
         $_SESSION["user"] = $user[0]->id;
+
+        // Para saber si es admin
+
+        /* $_SESSION["role"] = $user[0]->role;
+        // if ($user[0]->id==1) {
+        //   $this->code = 100;
+        //   $response = [
+        //     "message" => "Bienvenido admin",
+        //   ];
+         } 
+         */
         $response = [
           "data" => $user[0],
           "message" => "Ha iniciado sesión con éxito.",
         ];
+        
       } else {
         // No es correcto
         $this->code = 401;
@@ -101,4 +117,7 @@ class User extends Controller
     }
     return $response;
   }
+
+
+  
 }
