@@ -9,7 +9,7 @@ const  $nombre                       = document.querySelector('#nombre');
             //Modal de registro
             $modal2                        = document.querySelectorAll('.modal')[0];         
             $modalC2                     = document.querySelectorAll(".modal-container")[0];
-            inputsRegistro2              = document.querySelectorAll("input");
+            $inputsRegistro2              = document.querySelectorAll("input");
 
 
 $btnRegistro.addEventListener("click", (e) => {
@@ -32,6 +32,7 @@ $btnRegistro.addEventListener("click", (e) => {
             })
             .then((response)=>{
                   if (response.status === 200){
+                        alert("Usuario registrado con exito");
                         // Cierra el modal
                         modal.classList.toggle("modal-close");
                         setTimeout(function () {
@@ -39,20 +40,24 @@ $btnRegistro.addEventListener("click", (e) => {
                               modalC.style.visibility = "hidden";
                         }, 500);
                   
-                        // // Borra los inputs
+                        // Borra los inputs
                         for (let i = 0; i < inputsRegistro.length; i++) {
                               inputsRegistro[i].value = "";
                         }
-                        
                         console.log(response.data);
                   } else {
-                        alert(response.data.message);
+                        console.log(response.data.message);
                   }
             })
             .catch((error)=>{
                   if (error.response){
                         console.log(error.response);
                         alert(error.response.data.message);
+
+                        // Borra los inputs
+                        for (let i = 0; i < inputsRegistro.length; i++) {
+                              inputsRegistro[i].value = "";
+                        }
                   }
             });
       }else {
