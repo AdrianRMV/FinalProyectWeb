@@ -17,5 +17,7 @@
              include_once($_SERVER["DOCUMENT_ROOT"]."/components/sidebar.php");
       ?>
 
+      <!-- // webos
+ -->
 </body>
 </html>
