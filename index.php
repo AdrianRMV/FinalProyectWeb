@@ -17,6 +17,8 @@
       <script src="/src/js/logout.js"></script>
       <script src="/src/js/login.js"></script>
       <script src="/src/js/sidebar-actions.js"></script>
+      <script src="/src/js/retrieve.js"></script>
+      <script src="/src/js/report-actions.js"></script>
 
 </body>
 </html>

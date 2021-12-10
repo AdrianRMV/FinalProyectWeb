@@ -40,7 +40,7 @@
 
 .verReporte:hover{
     border:none;
-    background: #0a3668;
+    background: #777777
 }
 
 .title {
@@ -71,6 +71,10 @@
 .generarReporte:hover{
     border:none;
     background: #777777
+}
+
+.generarReporte-Admin{
+    background: #6BCE81;
 }
 
 #logoutBtn{

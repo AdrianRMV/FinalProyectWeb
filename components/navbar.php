@@ -21,7 +21,7 @@
         <p class='title'>Laweafome.com</p>
         <img class='logo' src='/src/images/admin.png'>
           <button class='generarReporte generarReporte-Admin'>Realizar Reporte</button>
-          <button class='verReporte'> Ver Reporte </button>
+          <button class='verReporte verReporte-Admin'> Ver Reporte </button>
           <button id='logoutBtn'>Cerrar Sesión</button>
         </div>";
   }
