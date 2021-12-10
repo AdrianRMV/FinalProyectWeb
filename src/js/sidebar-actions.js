@@ -51,7 +51,7 @@ if(generarReporte){
         let input4 = document.createElement('input');
         input4.classList.add('textBox');
         input4.setAttribute('id', 'inputUbicacion');
-        input4.setAttribute('class', 'ubication');
+        input4.setAttribute('class', 'ubicacion');
         input4.setAttribute('placeholder', 'Seleccione una ubicación');
 
         let button = document.createElement('button');

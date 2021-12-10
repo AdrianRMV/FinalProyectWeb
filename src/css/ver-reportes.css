@@ -28,25 +28,21 @@
       width:90%;
 }
 
-.reporte-boton{
+#btn-verReporte{
       border: none;
       color:white;
       background:rgb(90, 90, 90);
 }
 
-.reporte-boton:hover{
+#btn-verReporte:hover{
       background:rgb(59, 59, 59);
 }
 
-.reporte-boton:active{
+#btn-verReporte:active{
       box-shadow: inset 0px 0.1em 0.3em #858585;
       transform: translateY(0.1em);
 }
 
 .reporte-hr{
      margin: 2vh 0;
-      border:none;
-      width: 90%;
-      margin-bottom: 2vh;
-
 }

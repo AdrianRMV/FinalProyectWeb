@@ -14,8 +14,7 @@ if($userController->isLoggedIn()){
 
                 <p class='subtitle'>Ubicación</p>
 
-                <input class='textBox' id='inputUbicacion' class='ubication' placeholder='Seleccione una ubicación' required></input>
-
+                <input class='textBox' id='inputUbicacion' placeholder='Seleccione una ubicación' required></input>
 
                 <button id='confirmarBtn'>Confirmar</button>
             </form>
