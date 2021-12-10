@@ -15,7 +15,7 @@
 
 .modal {
       width: 25%;
-      height: 55vh;
+      height: fit-content(55vh) ;
       background-color: #fff;
       text-align: center;
       display: flex;
@@ -33,7 +33,7 @@
 
 .close {
       position: absolute;
-      top: 1px;
+      top: 17px;
       right: 15px;
       display: inline-block;
       width: 25px;
@@ -63,4 +63,28 @@
       border: 1px solid #ccc;
       margin-bottom: 10px;
       padding-left: 10px;
+}
+
+
+
+/* Cuando llegue a los 1638 de ancho la pantalla hacer el contenido del modal mas pequeño */
+
+@media screen and (max-width: 1638px) {
+      #title-registro {
+            font-size: 1.5rem;
+      }
+      .close {
+            position: absolute;
+            font-size: 1em;
+            top: 11px;
+            right: 15px;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: #c44a4a;
+            color: #fff;
+            line-height: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+      }
 }
