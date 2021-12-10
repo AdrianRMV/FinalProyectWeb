@@ -91,14 +91,15 @@ if ($getReporte) {
                                                             }
                                                             dividirCadena(response.data[0].ubicacion, ",");
 
-                                                            $titulo = response.data[0].titulo;
+                                                            $titulopop = response.data[0].titulo;
                                                             $descripcion = response.data[0].descripcion;
                                                             $ubicacion = response.data[0].ubicacion;
+                                                            //$fecha_creacion = response.data[0].fecha_creacion;
                                                             $estatus = response.data[0].estatus;
 
                                                             // recolocando el marcado en el mapa
                                                             marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                            popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
+                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus}`);
                   
                                                       }
                                                 })
