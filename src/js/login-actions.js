@@ -20,8 +20,8 @@ $btnLogin.addEventListener("click", (event)=>{
       })
       .then((response)=>{
             if (response.status === 200){
-            //      location.href = "/index.php";
-                  location.href = "/pagina-admin.php";
+                  location.href = "/index.php";
+            
             }else if(response.status === 100){
                   location.href = "/pagina-admin.php";
             }else {

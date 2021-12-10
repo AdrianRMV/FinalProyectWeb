@@ -44,7 +44,7 @@
 }
 
 .title {
-    flex-grow: 2;
+    flex-grow: 1;
     padding-left: 2vw;
     font-weight: bold;
     font-size: 30px;
