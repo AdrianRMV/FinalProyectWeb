@@ -71,22 +71,15 @@ BEGIN
     SET NEW.fecha_creacion = NOW();
 END$$
 
-CREATE TRIGGER T_REPORTES_USUARIO_ID
-BEFORE INSERT ON reportes
-FOR EACH ROW
-BEGIN
-	DECLARE idTemp INT;
-	SELECT id INTO idTemp FROM usuario
-    WHERE id = new.id;
-    SET NEW.usuario_id = idTemp;
-	
-END$$
-
 $$ DELIMITER ;
 
 call insert_user(1,"Adrian","Ramirez","Vazquez","a@gmail.com","popolol");
 
-INSERT INTO reportes (titulo,descripcion) VALUES ('pito','aaa');
+INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Enviado');
+INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Aceptado');
+INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Atendiendo');
+INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Rechazado');
+INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Solucionado');
 
 select * from reportes;
 select * from usuario;
