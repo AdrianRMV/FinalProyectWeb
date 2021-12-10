@@ -66,6 +66,7 @@ if ($getReporte) {
                                     // TODO: LISTENER
                                     $boton.addEventListener('click', () => {
                                           console.log("ENTRO AL ACTION");
+                                          console.log(response.data[i].id);
                                           const  data = new FormData();
                                           data.append('id', $idReporte);
                                           axios({
