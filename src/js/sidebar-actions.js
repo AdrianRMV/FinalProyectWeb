@@ -2,6 +2,7 @@ const generarReporte = document.querySelector('.generarReporte');
 const verReporte = document.querySelector('.verReporte');
 const sideContainer = document.querySelector('.sideContainer');
 
+
 if(generarReporte){
     generarReporte.addEventListener('click', () => {
         // sideContainer.innerHTML = '<p name="test" class="title2">Generar Reporte</p> <form> <p class="subtitle">Título</p> <input class="textBox" id="titulo" placeholder="Escriba un título" required></input> <p class="subtitle">Descripción</p> <input class="textBox textBox-desc" id="descripcion" placeholder="Escriba una descripción" required></input> <p class="subtitle">Adjuntar Foto</p> <input class="textBox" id="foto" placeholder="Adjunte una foto (Opcional)"></input> <p class="subtitle">Ubicación</p> <input class="textBox" placeholder="Seleccione una ubicación"></input> <button id="confirmarBtn">Confirmar</button> </form>'
@@ -49,11 +50,13 @@ if(generarReporte){
 
         let input4 = document.createElement('input');
         input4.classList.add('textBox');
+        input4.setAttribute('id', 'inputUbicacion');
         input4.setAttribute('placeholder', 'Seleccione una ubicación');
 
         let button = document.createElement('button');
         button.setAttribute('id', 'confirmarBtn');
         button.innerHTML = 'Confirmar';
+        button.style.visibility = 'visible';
 
         // agregando al form las etiquetas creadas
         form.appendChild(p1);
@@ -65,6 +68,7 @@ if(generarReporte){
         form.appendChild(p4);
         form.appendChild(input4);
         form.appendChild(button);
+
         sideContainer.appendChild(form);
 
     });
@@ -73,6 +77,16 @@ if(generarReporte){
 
 if(verReporte){
     verReporte.addEventListener('click', () =>{
+        // eliminar todos los elementos del sideContainer menos el boton del form
+        // let form = document.querySelector('form');
+        // sideContainer.removeChild(form);
+        // button.style.visibility = 'visible';
+
+        // let title2 = document.createElement('p');
+        // title2.classList.add('title2');
+        // title2.innerHTML = 'lista de reportes';
+        // sideContainer.appendChild(title2);
+
         sideContainer.innerHTML = '<p class="title2">Lista de Reportes<p>'
     })
 }

@@ -128,8 +128,8 @@ class User extends Controller
       
       $tituloR = $_POST['titulo'];
       $descripcion = $_POST['descripcion'];
-
-      $insert = "INSERT INTO reportes (titulo, descripcion) VALUES ('$tituloR', '$descripcion')";
+      $ubicacion = $_POST['inputUbicacion'];
+      $insert = "INSERT INTO reportes (titulo, descripcion,ubicacion) VALUES ('$tituloR', '$descripcion','$ubicacion')";
 
       $query = $this->db->post($insert);
 

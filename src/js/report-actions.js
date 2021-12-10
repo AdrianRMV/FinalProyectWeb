@@ -3,9 +3,9 @@ const $tituloR = document.querySelectorAll('#titulo')[0];
 const $descripcion = document.querySelectorAll('#descripcion')[0];
 /* const $fecha_creacion = document.querySelector('#fecha_creacion');
 const $foto = document.querySelector('#foto');
-const $latitud = document.querySelector('#latitud');
-const $longitud = document.querySelector('#longitud'); */
-const $confirmarBtn = document.querySelectorAll('#confirmarBtn')[0];
+const $latitud = document.querySelector('#latitud');*/
+const $ubicacion = document.querySelectorAll('#inputUbicacion')[0];; 
+const $confirmarBtn = document.getElementById('confirmarBtn');
 
 if($confirmarBtn){
     $confirmarBtn.addEventListener('click', (event) => {
@@ -14,6 +14,7 @@ if($confirmarBtn){
         const data = new FormData();
         data.append('titulo', $tituloR.value);
         data.append('descripcion', $descripcion.value);
+        data.append('ubicacion', $ubicacion.value);
     
         axios({
                 method: 'POST',
@@ -22,9 +23,11 @@ if($confirmarBtn){
                 headers: {
                     "Content-Type": "multipart/form-data"
                 },
-            }).then((response) => {
+            })
+            .then((response) => {
                 if (response.status === 200) {
                     alert("Reporte registrado con éxito");
+                    
                 } else {
                     alert(response.data.message);
                 }

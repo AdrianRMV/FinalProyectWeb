@@ -50,7 +50,7 @@ if($getReporte){
                               $contenedorDerecho.appendChild($div);
                         }
 
-                        alert("Me la pelo el reporte");
+                        console.log(response.data);
                   } else {
                         alert(response.data.message);
                   }
