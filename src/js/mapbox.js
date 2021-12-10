@@ -23,7 +23,7 @@
 
     map.on('click', (event) => {
       console.log(event);
-      inputUbicacion.value = event.lngLat.lat;
+      inputUbicacion.value = [event.lngLat.lng, event.lngLat.lat];
       marker.setLngLat([event.lngLat.lng, event.lngLat.lat]);
     });
 
