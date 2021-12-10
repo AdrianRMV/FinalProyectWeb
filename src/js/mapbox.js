@@ -1,8 +1,8 @@
 let  marker ="";
 let  popup ="";
+let map="";
 window.addEventListener("DOMContentLoaded", e =>{
 
-  let map;
   const  inputUbicacion = document.querySelector("#inputUbicacion");
   // this is the mapbox token
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVlYnluIiwiYSI6ImNrd3dqMGZicTA0NnUyb25ycHhlM2ZkczMifQ.pcce_3Y1efvphqm5AbUjXQ';
@@ -16,7 +16,9 @@ window.addEventListener("DOMContentLoaded", e =>{
   });
 
   // add popups
-  popup = new mapboxgl.Popup({ closeOnClick: true, offset: 15, maxWidth:'300px' }).setText('SOY UN TEXTO');
+
+  popup = new mapboxgl.Popup({ closeOnClick: true, offset: 15, maxWidth:'300px' }).setText('Aqui estas ubicado');
+
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());

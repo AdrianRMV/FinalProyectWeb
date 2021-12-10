@@ -204,6 +204,7 @@ class User extends Controller
           "foto" => $query[0]->foto,
           "ubicacion" => $query[0]->ubicacion,
           "id_usuario" => $query[0]->usuario_id,
+          "admin" => $_SESSION["rol"][0],
           "message" => "Datos extraidos correctamente",
         ];
         array_push($array, $response);
