@@ -1,10 +1,8 @@
 /* const $estatus = document.querySelector('#estatus'); */
 const $tituloR = document.querySelectorAll('#titulo')[0];
 const $descripcion = document.querySelectorAll('#descripcion')[0];
-/* const $fecha_creacion = document.querySelector('#fecha_creacion');
-const $foto = document.querySelector('#foto');
-const $latitud = document.querySelector('#latitud');*/
-const $ubicacion = document.querySelectorAll('#inputUbicacion')[0];; 
+/* const $foto = document.querySelector('#foto'); */
+const $ubicacion = document.querySelectorAll('#inputUbicacion')[0];
 const $confirmarBtn = document.getElementById('confirmarBtn');
 
 if($confirmarBtn){
