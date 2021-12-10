@@ -5,8 +5,7 @@ const  $contenedorDerecho = document.querySelector('.sideContainer');
 
 if($getReporte){
       $getReporte.addEventListener("click", (event)=>{
-
-            console.log("pito")
+            event.preventDefault();
             const  data = new FormData();
             // data.append('titulo', $reportTitle.value);
             // data.append('descripcion', $desc.value);
@@ -22,9 +21,6 @@ if($getReporte){
             .then((response)=>{
                   if (response.status === 200){
                         
-                        // while(response){
-                        //       console.log(response.data)
-                        // }
                         console.log(response);
                         console.log(response.data.length);
                         console.log(response.data[0].titulo);
@@ -50,23 +46,18 @@ if($getReporte){
                                     $boton.classList.add('reporte-boton'); //CLASE PARA EL BOTON (reporte-boton)
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
-                                    
+
                               $contenedorDerecho.appendChild($div);
                         }
 
-
-
                         alert("Me la pelo el reporte");
-                        console.log('que pro');
                   } else {
                         alert(response.data.message);
-                        console.log('gay');
                   }
             })
             .catch((error)=>{
                   if (error.response){
                         console.log(error.response);
-                        console.log('?????????');
                         alert(error.response.data.message);
                   }
             });
