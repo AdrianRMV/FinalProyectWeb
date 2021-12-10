@@ -34,6 +34,15 @@
       background:rgb(90, 90, 90);
 }
 
+.reporte-boton:hover{
+      background:rgb(59, 59, 59);
+}
+
+.reporte-boton:active{
+      box-shadow: inset 0px 0.1em 0.3em #858585;
+      transform: translateY(0.1em);
+}
+
 .reporte-hr{
      margin: 2vh 0;
 }

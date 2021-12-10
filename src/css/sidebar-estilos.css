@@ -1,5 +1,5 @@
 .sideContainer{
-    
+    overflow:auto;
     float:right;
     font-family: Poppins;
     font-style: normal;
