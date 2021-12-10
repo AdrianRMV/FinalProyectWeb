@@ -80,7 +80,7 @@ if ($getReporte) {
                                                 })
                                                 .then((response) => {
                                                       if (response.status === 200) {
-
+                                                            console.log(response.data[0]);
                                                             // Retornar ubicacion separada LNG LAT
                                                             let ubicacion= [];
                                                             function  dividirCadena (cadena,separador) {
@@ -91,8 +91,14 @@ if ($getReporte) {
                                                             }
                                                             dividirCadena(response.data[0].ubicacion, ",");
 
+                                                            $titulo = response.data[0].titulo;
+                                                            $descripcion = response.data[0].descripcion;
+                                                            $ubicacion = response.data[0].ubicacion;
+                                                            $estatus = response.data[0].estatus;
+
                                                             // recolocando el marcado en el mapa
                                                             marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                            popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
                   
                                                       }
                                                 })

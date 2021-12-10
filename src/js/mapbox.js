@@ -1,4 +1,5 @@
 let  marker ="";
+let  popup ="";
 window.addEventListener("DOMContentLoaded", e =>{
 
   let map;
@@ -14,9 +15,16 @@ window.addEventListener("DOMContentLoaded", e =>{
     zoom: 12.5,
   });
 
+  // add popups
+  popup = new mapboxgl.Popup({ closeOnClick: true, offset: 15 }).setText('SOY UN TEXTO');
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+
   marker = new mapboxgl.Marker({
-      draggable: true,
+      draggable: false,
     })
+    .setPopup(popup) 
     .setLngLat([-110.3133500617475, 24.140485041417175])
     .addTo(map);
 
