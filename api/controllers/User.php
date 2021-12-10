@@ -126,10 +126,10 @@ class User extends Controller
     $response = [];
     if (isset($_POST['titulo']) && isset($_POST['descripcion'])) {
       
-      $titulo = $_POST['titulo'];
+      $tituloR = $_POST['titulo'];
       $descripcion = $_POST['descripcion'];
 
-      $insert = "INSERT INTO reportes (titulo, descripcion) VALUES ('$titulo', '$descripcion')";
+      $insert = "INSERT INTO reportes (titulo, descripcion) VALUES ('$tituloR', '$descripcion')";
 
       $query = $this->db->post($insert);
 
