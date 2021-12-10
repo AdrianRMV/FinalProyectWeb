@@ -61,7 +61,7 @@ if ($getReporte) {
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
                                     
-                                    $idReporte = response.data[0].id;
+                                    $idReporte = response.data[6].id;
 
                                     // TODO: LISTENER
                                     $boton.addEventListener('click', () => {
@@ -81,7 +81,10 @@ if ($getReporte) {
                                                       if (response.status === 200) {
                                                             console.log(response.data[i]);
                                                             // console.log(response.data);
-                                                            // marker.setLngLat([response.data.data.ubicacion]);
+                                                            console.log("123" * 1);
+                                                            console.log(response.data[i].ubicacion);
+                                                            marker.setLngLat([response.data.ubicacion * 1]);
+                  
                                                       }
                                                 })
                                                 .catch((error) => {
