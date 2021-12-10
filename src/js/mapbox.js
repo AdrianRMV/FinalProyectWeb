@@ -1,8 +1,8 @@
 let  marker ="";
 let  popup ="";
+let map="";
 window.addEventListener("DOMContentLoaded", e =>{
 
-  let map;
   const  inputUbicacion = document.querySelector("#inputUbicacion");
   // this is the mapbox token
   mapboxgl.accessToken = 'pk.eyJ1IjoicXVlYnluIiwiYSI6ImNrd3dqMGZicTA0NnUyb25ycHhlM2ZkczMifQ.pcce_3Y1efvphqm5AbUjXQ';

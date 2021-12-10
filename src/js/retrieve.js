@@ -99,6 +99,11 @@ if ($getReporte) {
                                                             // recolocando el marcado en el mapa
                                                             marker.setLngLat([ubicacion[0], ubicacion[1]]);
                                                             popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
+
+                                                            map.on('click', (event) => {
+                                                                  console.log(event);
+                                                                  marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                            });
                   
                                                       }
                                                 })
