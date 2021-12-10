@@ -88,7 +88,7 @@ if(verReporte){
         // title2.innerHTML = 'lista de reportes';
         // sideContainer.appendChild(title2);
 
-        sideContainer.innerHTML = '<p class="title2">Lista de Reportes<p>'
+        sideContainer.innerHTML = '<p class="title2">Lista de Reportes</p>'
     })
 }
 

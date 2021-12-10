@@ -13,7 +13,9 @@ if($userController->isLoggedIn()){
                 <input class='textBox' id='foto' placeholder='Adjunte una foto (Opcional)'></input>
 
                 <p class='subtitle'>Ubicación</p>
-                <input class='textBox' id='inputUbicacion' class='ubication' placeholder='Seleccione una ubicación'></input>
+
+                <input class='textBox' id='inputUbicacion' class='ubication' placeholder='Seleccione una ubicación' required></input>
+
 
                 <button id='confirmarBtn'>Confirmar</button>
             </form>

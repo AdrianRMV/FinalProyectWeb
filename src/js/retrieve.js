@@ -7,8 +7,6 @@ if($getReporte){
       $getReporte.addEventListener("click", (event)=>{
             event.preventDefault();
             const  data = new FormData();
-            // data.append('titulo', $reportTitle.value);
-            // data.append('descripcion', $desc.value);
         
             axios({
                   method: 'POST',
@@ -30,11 +28,21 @@ if($getReporte){
                               let $div = document.createElement('div');
                                     $div.classList.add(`reporte-contenedor`); //CLASE PARA EL DIV (reporte)
 
-                                    let $titulo = document.createElement('h3');
-                                    $titulo.classList.add(`reporte-titulo-${i+1}`); //CLASE PARA EL TITULO (reporte-titulo)
-                                    $titulo.innerHTML = response.data[i].titulo;
-                                    $div.appendChild($titulo);
+                                    let $innerDiv = document.createElement('div');
+                                    $innerDiv.classList.add('small-container');
 
+                                    let $titulo = document.createElement('p');
+                                    $titulo.classList.add('reporte-titulo'); //CLASE PARA EL TITULO (reporte-titulo)
+
+                                    $titulo.innerHTML = response.data[i].titulo;
+                                    $innerDiv.appendChild($titulo);
+
+                                    let $estatus = document.createElement('img');
+                                    $estatus.classList.add('status-img');//CLASE PARA EL ESTATUS (status-img)
+                                    $estatus.src = '/src/images/'+response.data[i].estatus+'.png';
+                                    $innerDiv.appendChild($estatus);
+
+                                    $div.appendChild($innerDiv);
 
                                     let $descripcion = document.createElement('p');
                                     $descripcion.classList.add(`reporte-descripcion-${i+1}`); //CLASE PARA LA DESCRIPCION (reporte-descripcion)
@@ -52,6 +60,10 @@ if($getReporte){
                                     $boton.setAttribute('id','btn-verReporte'); //CLASE PARA EL BOTON (reporte-boton)
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
+
+                                    let $hr = document.createElement('hr');
+                                    $hr.classList.add('reporte-hr');
+                                    $div.appendChild($hr);
 
                               $contenedorDerecho.appendChild($div);
                         }
