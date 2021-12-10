@@ -49,7 +49,7 @@ if($getReporte){
 
                                     // crea un boton nuevo y agregalo al DIV
                                     let $boton = document.createElement('button');
-                                    $boton.classList.add(`reporte-boton-${i+1}`); //CLASE PARA EL BOTON (reporte-boton)
+                                    $boton.setAttribute('id','btn-verReporte'); //CLASE PARA EL BOTON (reporte-boton)
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
 
