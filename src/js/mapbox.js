@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", e =>{
   });
 
   // add popups
-  popup = new mapboxgl.Popup({ closeOnClick: true, offset: 15 }).setText('SOY UN TEXTO');
+  popup = new mapboxgl.Popup({ closeOnClick: true, offset: 15 }).setText('Aqui esta tu ubicacion');
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());

@@ -60,14 +60,14 @@ if ($getReporte) {
                                     $boton.setAttribute('id', 'btn-verReporte'); //CLASE PARA EL BOTON (reporte-boton)
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
-                                    
-                                    
+
+
 
                                     // TODO: LISTENER
                                     $boton.addEventListener('click', () => {
                                           console.log("ENTRO AL ACTION");
                                           $idReporte = response.data[i].id;
-                                          const  data = new FormData();
+                                          const data = new FormData();
                                           data.append('id', $idReporte);
                                           console.log($idReporte);
                                           axios({
@@ -82,29 +82,53 @@ if ($getReporte) {
                                                       if (response.status === 200) {
                                                             console.log(response.data[0]);
                                                             // Retornar ubicacion separada LNG LAT
-                                                            let ubicacion= [];
-                                                            function  dividirCadena (cadena,separador) {
+                                                            let ubicacion = [];
+
+                                                            function dividirCadena(cadena, separador) {
                                                                   let arrayDeCadenas = cadena.split(separador);
                                                                   for (let i = 0; i < arrayDeCadenas.length; i++) {
                                                                         ubicacion.push(arrayDeCadenas[i]);
                                                                   }
                                                             }
                                                             dividirCadena(response.data[0].ubicacion, ",");
+                                                            // Si es admin, se muestran los botones
+                                                            if (response.data[0].admin == 1) {
+                                                                  $titulo = response.data[0].titulo;
+                                                                  $descripcion = response.data[0].descripcion;
+                                                                  $ubicacion = response.data[0].ubicacion;
+                                                                  $estatus = response.data[0].estatus;
 
-                                                            $titulo = response.data[0].titulo;
-                                                            $descripcion = response.data[0].descripcion;
-                                                            $ubicacion = response.data[0].ubicacion;
-                                                            $estatus = response.data[0].estatus;
-
-                                                            // recolocando el marcado en el mapa
-                                                            marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                            popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
-
-                                                            map.on('click', (event) => {
-                                                                  console.log(event);
+                                                                  // recolocando el marcado en el mapa
                                                                   marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                            });
-                  
+                                                                  if(response.data[0].estatus == "Enviado"){
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Aceptar</button><button id="btnCancelado">Rechazar</button>`);
+                                                                  } else if (response.data[0].estatus == "Aceptado"){
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAtendiendo">Atender</button><button id="btnCancelado">Rechazar</button>`);
+                                                                  }else if (response.data[0].estatus == "Atendido"){
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnSolucionado">Solucionado</button><button id="btnCancelado">Rechazar</button>`);
+                                                                  }
+
+
+                                                                  map.on('click', (event) => {
+                                                                        console.log(event);
+                                                                        marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  });
+                                                                  // Si es usuario normal
+                                                            } else {
+                                                                  $titulo = response.data[0].titulo;
+                                                                  $descripcion = response.data[0].descripcion;
+                                                                  $ubicacion = response.data[0].ubicacion;
+                                                                  $estatus = response.data[0].estatus;
+
+                                                                  // recolocando el marcado en el mapa
+                                                                  marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
+
+                                                                  map.on('click', (event) => {
+                                                                        console.log(event);
+                                                                        marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  });
+                                                            }
                                                       }
                                                 })
                                                 .catch((error) => {
@@ -137,4 +161,3 @@ if ($getReporte) {
                   });
       });
 }
-
