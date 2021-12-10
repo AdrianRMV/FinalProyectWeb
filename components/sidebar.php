@@ -2,7 +2,6 @@
 if($userController->isLoggedIn()){ 
     echo "<div class='sideContainer'>
             <p class='title2'>Generar Reporte</p>
-            <hr class='solid'></hr>
             <form>
                 <p class='subtitle'>Título</p>
                 <input type = 'text' class='textBox' id='titulo' placeholder='Escriba un título' required></input>

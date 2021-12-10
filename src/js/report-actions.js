@@ -24,6 +24,7 @@ if($confirmarBtn){
                 },
             }).then((response) => {
                 if (response.status === 200) {
+                    alert("Reporte registrado con éxito");
                 } else {
                     alert(response.data.message);
                 }
