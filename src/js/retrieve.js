@@ -1,5 +1,5 @@
-const $reportTitle = document.querySelector('#reportTitle');
-const $desc = document.querySelector('#desc');
+// const $reportTitle = document.querySelector('#reportTitle');
+// const $desc = document.querySelector('#desc');
 const $getReporte = document.querySelector('.verReporte');
 
 if($getReporte){
@@ -7,8 +7,8 @@ if($getReporte){
 
             console.log("pito")
             const  data = new FormData();
-            data.append('titulo', $reportTitle.value);
-            data.append('descripcion', $desc.value);
+            // data.append('titulo', $reportTitle.value);
+            // data.append('descripcion', $desc.value);
         
             axios({
                   method: 'POST',
@@ -21,6 +21,7 @@ if($getReporte){
             .then((response)=>{
                   if (response.status === 200){
                         console.log(response);
+                        alert("Me la pelo el reporte");
                         console.log('que pro');
                   } else {
                         alert(response.data.message);

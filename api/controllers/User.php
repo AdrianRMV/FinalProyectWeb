@@ -152,27 +152,27 @@ class User extends Controller
     return $response;
     }
 
-    function retrieve(){
-      /* if (isset($_POST["titulo"]) && isset($_POST["descripcion"])) {
-        
-        $titulo = $_POST["titulo"];
-        $descripcion =  $_POST["descripcion"]; */
-        
-        $query = $this->db->get("SELECT titulo, descripcion FROM reportes WHERE usuario_id = 1");
-        
-        if ($query) {
-          $response = [
-            "data" => $query,
-            "message" => "Datos extraidos correctamente",
-          ];
-        } else {
-          // No es correcto
-          $this->code = 400;
-          $response = [
-            "message" => "Error al traer datos",
-          ];
-        }
-      //}
-      return $response;
-    }
+  function retrieve(){
+    /* if (isset($_POST["titulo"]) && isset($_POST["descripcion"])) {
+      
+      $titulo = $_POST["titulo"];
+      $descripcion =  $_POST["descripcion"]; */
+      
+      $query = $this->db->get("SELECT * FROM reportes ");
+      
+      if ($query) {
+        $response = [
+          "data" => $query[0],
+          "message" => "Datos extraidos correctamente",
+        ];
+      } else {
+        // No es correcto
+        $this->code = 400;
+        $response = [
+          "message" => "Error al traer datos",
+        ];
+      }
+    //}
+    return $response;
+  }
 }
