@@ -31,6 +31,7 @@
     background: #A2B6EF;
     border: none;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 #confirmarBtn:hover{

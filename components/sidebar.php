@@ -14,13 +14,13 @@ if($userController->isLoggedIn()){
                 <input class='textBox' id='foto' placeholder='Adjunte una foto (Opcional)'></input>
 
                 <p class='subtitle'>Ubicación</p>
-                <input class='textBox' placeholder='Seleccione una ubicación'></input>
+                <input class='textBox' id='inputUbicacion' placeholder='Seleccione una ubicación'></input>
 
                 <button id='confirmarBtn'>Confirmar</button>
             </form>
-        </div>';
+        </div>";
 }else{
-    echo '<div class='sideContainer'>
+    echo "<div class='sideContainer'>
     <img class='large-icon' src='/src/images/login.png'>
     <p class='subtitle subtitle-advise'>Inicia Sesión para reportar un problema</p>
     </div>";
