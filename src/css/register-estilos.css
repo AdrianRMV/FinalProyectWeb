@@ -79,12 +79,20 @@
             top: 11px;
             right: 15px;
             display: inline-block;
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
             background-color: #c44a4a;
             color: #fff;
-            line-height: 15px;
+            line-height: 20px;
             cursor: pointer;
             border-radius: 50%;
+      }
+}
+
+/* cuando llegue  800px la pantalla que el modal se haga el doble de grande */
+
+@media screen and (max-width: 1000px) {
+      .modal {
+            width: 50%;
       }
 }
