@@ -11,7 +11,8 @@ class User extends Controller
     return isset($_SESSION["user"]);
   }
 
-  function isAdmin(){
+  function isAdmin()
+  {
     return  isset($_SESSION["rol"]) && $_SESSION["rol"] == 1;
   }
 
@@ -29,31 +30,30 @@ class User extends Controller
 
       $cuentaRegistrado = $this->db->get("SELECT  email FROM usuario WHERE email = '$correo' ");
 
-      if (count($cuentaRegistrado)>0){
-        $this -> code = 418;
+      if (count($cuentaRegistrado) > 0) {
+        $this->code = 418;
         $response = [
           "message" => "Este correo ya esta registrado"
         ];
-      }else {
+      } else {
         // insertar usuario en la bd desde un procedmiemto almacenado 
         $insert = "CALL insert_user('$id_rol','$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
 
-      $query = $this->db->post($insert);
+        $query = $this->db->post($insert);
 
-      if ($query) {
-        $response = [
-          "message" => "Usuario registrado correctamente"
-        ];
-      } else {
-        $this -> code = 400;
-        $response = [
-          "message" => "Error al registro"
-        ];
+        if ($query) {
+          $response = [
+            "message" => "Usuario registrado correctamente"
+          ];
+        } else {
+          $this->code = 400;
+          $response = [
+            "message" => "Error al registro"
+          ];
+        }
       }
+      return $response;
     }
-    return $response;
-      }
-      
   }
 
   function login()
@@ -77,16 +77,16 @@ class User extends Controller
 
         // Para saber si es admin
         $_SESSION["rol"] = $user[0]->id_rol;
-        
-        if($_SESSION["rol"]== 1){
-              $this->code = 100;
-                $response = [
-                    "message" => "Bienvenido Administrador",
-                ];
-        }else {
-                $response = [
-                    "message" => "Bienvenido Usuario",
-                ];
+
+        if ($_SESSION["rol"] == 1) {
+          $this->code = 100;
+          $response = [
+            "message" => "Bienvenido Administrador",
+          ];
+        } else {
+          $response = [
+            "message" => "Bienvenido Usuario",
+          ];
         }
       } else {
         // No es correcto
@@ -125,7 +125,7 @@ class User extends Controller
   {
     $response = [];
     if (isset($_POST['titulo']) && isset($_POST['descripcion'])) {
-      
+
 
       $tituloR = $_POST['titulo'];
       $descripcion = $_POST['descripcion'];
@@ -141,53 +141,75 @@ class User extends Controller
           "message" => "Reporte enviado correctamente"
         ];
       } else {
-        $this -> code = 400;
+        $this->code = 400;
         $response = [
           "message" => "Error al enviar reporte"
         ];
       }
     } else {
-      $this -> code = 400;
+      $this->code = 400;
       $response = [
         "message" => "Faltan datos",
       ];
     }
     return $response;
-    }
+  }
 
-  function retrieve(){
-    /* if (isset($_POST["titulo"]) && isset($_POST["descripcion"])) {
-      
-      $titulo = $_POST["titulo"];
-      $descripcion =  $_POST["descripcion"]; */
-      
-      $query = $this->db->get("SELECT * FROM reportes ");
-      $array = [];
-      if ($query) {
-        
-          for ($i=0; $i < count($query); $i++) { 
-          $response = [
-            "id" => $query[$i]->id,
-            "estatus" => $query[$i]->estatus,
-            "titulo" => $query[$i]->titulo,
-            "descripcion" => $query[$i]->descripcion,
-            "fecha_creacion" => $query[$i]->fecha_creacion,
-            "foto" => $query[$i]->foto,
-            "ubicacion" => $query[$i]->ubicacion,
-            "id_usuario" => $query[$i]->usuario_id,
-            "message" => "Datos extraidos correctamente",
-          ];
-          array_push($array, $response);
-        }
-        return $array;
-      } else {
-        // No es correcto
-        $this->code = 400;
+  function retrieve()
+  {
+
+    $query = $this->db->get("SELECT * FROM reportes ");
+    $array = [];
+    if ($query) {
+
+      for ($i = 0; $i < count($query); $i++) {
         $response = [
-          "message" => "Error al traer datos",
+          "id" => $query[$i]->id,
+          "estatus" => $query[$i]->estatus,
+          "titulo" => $query[$i]->titulo,
+          "descripcion" => $query[$i]->descripcion,
+          "fecha_creacion" => $query[$i]->fecha_creacion,
+          "foto" => $query[$i]->foto,
+          "ubicacion" => $query[$i]->ubicacion,
+          "id_usuario" => $query[$i]->usuario_id,
+          "message" => "Datos extraidos correctamente",
         ];
+        array_push($array, $response);
       }
+      return $array;
+    } else {
+      // No es correcto
+      $this->code = 400;
+      $response = [
+        "message" => "Error al traer datos",
+      ];
+    }
     //}
     return $response;
+  }
+
+  function  regresarReporte()
+  {
+    $idReporte = $_POST['id'];
+    $query = $this->db->get("SELECT * FROM reportes WHERE id = '$idReporte'");
+    $response = [];
+    $array = [];
+    if ($query) {
+      for ($i = 0; $i < count($query); $i++) {
+        $response = [
+          "id" => $query[$i]->id,
+          "estatus" => $query[$i]->estatus,
+          "titulo" => $query[$i]->titulo,
+          "descripcion" => $query[$i]->descripcion,
+          "fecha_creacion" => $query[$i]->fecha_creacion,
+          "foto" => $query[$i]->foto,
+          "ubicacion" => $query[$i]->ubicacion,
+          "id_usuario" => $query[$i]->usuario_id,
+          "message" => "Datos extraidos correctamente",
+        ];
+        array_push($array, $response);
+      }
+      return $array;
+    }
   }
 }
