@@ -1,11 +1,12 @@
 <?php
   include_once($_SERVER["DOCUMENT_ROOT"]."/api/controllers/User.php");
   $userController = new User(false);
-  if($userController->isLoggedIn() && $userController->isAdmin()) {
-    header("Location: /pagina-admin.php");
-  }else if($userController->isLoggedIn()){
-      header("Location: /index.php");
-  }
+//   if($userController->isLoggedIn() && $userController->isAdmin()) {
+//     header("Location: /pagina-admin.php");
+//   }else 
+      if($userController->isLoggedIn()){
+            header("Location: /index.php");
+      }
    
 ?>
 <!DOCTYPE html>

@@ -14,7 +14,7 @@ if($confirmarBtn){
         const data = new FormData();
         data.append('titulo', $tituloR.value);
         data.append('descripcion', $descripcion.value);
-        data.append('ubicacion', $ubicacion.value);
+        data.append('inputUbicacion', $ubicacion.value);
     
         axios({
                 method: 'POST',
