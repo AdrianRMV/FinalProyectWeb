@@ -19,6 +19,8 @@ class DataBase
             }
             return $result;
       }
+
+
       function post($query)
       {
             $exec = $this->con->query($query);

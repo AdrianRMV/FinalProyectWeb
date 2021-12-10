@@ -61,14 +61,14 @@ if ($getReporte) {
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
                                     
-                                    $idReporte = response.data[i].id;
+                                    $idReporte = response.data[0].id;
 
                                     // TODO: LISTENER
                                     $boton.addEventListener('click', () => {
                                           console.log("ENTRO AL ACTION");
-                                          console.log(response.data[i].id);
                                           const  data = new FormData();
                                           data.append('id', $idReporte);
+                                          console.log($idReporte);
                                           axios({
                                                       method: 'POST',
                                                       url: "/api/user/obtener-reporte.php",
@@ -79,7 +79,7 @@ if ($getReporte) {
                                                 })
                                                 .then((response) => {
                                                       if (response.status === 200) {
-                                                            console.log(response.data[i].id);
+                                                            console.log(response.data[i]);
                                                             // console.log(response.data);
                                                             // marker.setLngLat([response.data.data.ubicacion]);
                                                       }

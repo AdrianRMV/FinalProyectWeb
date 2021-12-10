@@ -191,24 +191,22 @@ class User extends Controller
   function  regresarReporte()
   {
     $idReporte = $_POST['id'];
-    $query = $this->db->get("SELECT * FROM reportes WHERE id = '$idReporte'");
+    $query = $this->db->get("SELECT * FROM reportes WHERE id = '$idReporte' ");
     $response = [];
     $array = [];
     if ($query) {
-      for ($i = 0; $i < count($query); $i++) {
         $response = [
-          "id" => $query[$i]->id,
-          "estatus" => $query[$i]->estatus,
-          "titulo" => $query[$i]->titulo,
-          "descripcion" => $query[$i]->descripcion,
-          "fecha_creacion" => $query[$i]->fecha_creacion,
-          "foto" => $query[$i]->foto,
-          "ubicacion" => $query[$i]->ubicacion,
-          "id_usuario" => $query[$i]->usuario_id,
+          "id" => $query[0]->id,
+          "estatus" => $query[0]->estatus,
+          "titulo" => $query[0]->titulo,
+          "descripcion" => $query[0]->descripcion,
+          "fecha_creacion" => $query[0]->fecha_creacion,
+          "foto" => $query[0]->foto,
+          "ubicacion" => $query[0]->ubicacion,
+          "id_usuario" => $query[0]->usuario_id,
           "message" => "Datos extraidos correctamente",
         ];
         array_push($array, $response);
-      }
       return $array;
     }
   }
