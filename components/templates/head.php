@@ -15,3 +15,4 @@
 <link rel="stylesheet" href="/src/css/navbar-estilos.css">
 <link rel="stylesheet" href="/src/css/map-estilos.css">
 <link rel="stylesheet" href="/src/css/sidebar-estilos.css">
+<link rel="stylesheet" href="/src/css/ver-reportes.css">
