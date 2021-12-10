@@ -2,7 +2,7 @@
       <div class="modal modal-close">
             <p class="close">X</p>
             <form class="registro-inputs">
-                  <h2 class="login-title">Registro</h2>
+                  <h2 id="title-registro" class="login-title">Registro</h2>
                   <input type="text" placeholder="Nombre" id="nombre"  required>
                   <input type="text" placeholder="Apellido paterno" id="apellidoPaterno" required>
                   <input type="text" placeholder="Apellido materno" id="apellidoMaterno" >
