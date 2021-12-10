@@ -1,4 +1,5 @@
 <?php
+//Usuario Normal
   if($userController->isLoggedIn() && !$userController->isAdmin()){ 
     echo "<div class='barContainer'>
         <img class='logo' src='/src/images/weonqliao.jpg'>
@@ -7,6 +8,7 @@
           <button class='verReporte'> Ver Reporte </button>
           <button id='logoutBtn'>Cerrar Sesión</button>
         </div>";
+//Usuario sin registrar
 }else if(!$userController->isLoggedIn()){
     echo "<div class='barContainer'>
         <img class='logo' src='/src/images/weonqliao.jpg'>
@@ -15,6 +17,7 @@
         <button id='iniciarBtn'>Iniciar Sesión / Registrate</button>
         </div>";  
 }
+//Usuario Administrador
   if($userController->isLoggedIn() && $userController->isAdmin()){
     echo "<div class='barContainer barContainer-Admin'>
         <img class='logo' src='/src/images/weonqliao.jpg'>

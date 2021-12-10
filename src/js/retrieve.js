@@ -56,7 +56,6 @@ if($getReporte){
                               $contenedorDerecho.appendChild($div);
                         }
 
-                        console.log(response.data);
                   } else {
                         alert(response.data.message);
                         
