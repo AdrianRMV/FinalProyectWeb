@@ -61,11 +61,12 @@ if ($getReporte) {
                                     $boton.innerHTML = "Ver Reporte";
                                     $div.appendChild($boton);
                                     
-                                    $idReporte = response.data[6].id;
+                                    
 
                                     // TODO: LISTENER
                                     $boton.addEventListener('click', () => {
                                           console.log("ENTRO AL ACTION");
+                                          $idReporte = response.data[i].id;
                                           const  data = new FormData();
                                           data.append('id', $idReporte);
                                           console.log($idReporte);
@@ -79,10 +80,6 @@ if ($getReporte) {
                                                 })
                                                 .then((response) => {
                                                       if (response.status === 200) {
-                                                            console.log(response.data[i]);
-                                                            // console.log(response.data);
-                                                            console.log("123" * 1);
-                                                            console.log(response.data[i].ubicacion);
 
                                                             // Retornar ubicacion separada LNG LAT
                                                             let ubicacion= [];
@@ -92,8 +89,7 @@ if ($getReporte) {
                                                                         ubicacion.push(arrayDeCadenas[i]);
                                                                   }
                                                             }
-                                                            dividirCadena(response.data[i].ubicacion, ",");
-                                                            console.log(ubicacion);
+                                                            dividirCadena(response.data[0].ubicacion, ",");
 
                                                             // recolocando el marcado en el mapa
                                                             marker.setLngLat([ubicacion[0], ubicacion[1]]);
