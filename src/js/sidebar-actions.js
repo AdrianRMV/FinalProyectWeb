@@ -28,10 +28,10 @@ if(generarReporte){
                 <button id="confirmarBtn">Confirmar</button>
             </form>
         </div>"; */
-
+if(verReporte){
     verReporte.addEventListener('click', () =>{
         sideContainer.innerHTML = '<p class="title2">Lista de Reportes<p>'
     })
-
+}
 // Código de verReporte
     {/* <p>brob<p> */}
