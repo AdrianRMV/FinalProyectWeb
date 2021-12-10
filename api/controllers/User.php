@@ -25,7 +25,7 @@ class User extends Controller
       $apellidoM = $_POST["apellidoMaterno"];
       $correo = $_POST["correo"];
       $contra = $_POST["contrasena"];
-      $id_rol = 2; // predeterminado rol usuario = 1
+      $id_rol = 2; // predeterminado rol usuario = 2
 
       $cuentaRegistrado = $this->db->get("SELECT  email FROM usuario WHERE email = '$correo' ");
 
@@ -35,7 +35,8 @@ class User extends Controller
           "message" => "Este correo ya esta registrado"
         ];
       }else {
-        $insert = "INSERT INTO usuario (id_rol,name, lastname_one, lastname_two, email, password) VALUES ('$id_rol','$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
+        // insertar usuario en la bd desde un procedmiemto almacenado 
+        $insert = "CALL insert_user('$id_rol','$nombre', '$apellidoP', '$apellidoM', '$correo', '$contra')";
 
       $query = $this->db->post($insert);
 
