@@ -25,6 +25,8 @@ if($getReporte){
                         //       console.log(response.data)
                         // }
                         console.log(response);
+                        console.log(response.data.length);
+                        console.log(response.data[0].titulo);
                         alert("Me la pelo el reporte");
                         console.log('que pro');
                   } else {
