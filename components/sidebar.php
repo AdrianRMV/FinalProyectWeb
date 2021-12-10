@@ -10,4 +10,6 @@ if($userController->isLoggedIn()){
     <p class='subtitle subtitle-advise'>Inicia Sesión para reportar un problema</p>
     </div>";
 }
+
+
 ?>
