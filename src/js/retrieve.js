@@ -83,7 +83,20 @@ if ($getReporte) {
                                                             // console.log(response.data);
                                                             console.log("123" * 1);
                                                             console.log(response.data[i].ubicacion);
-                                                            marker.setLngLat([response.data.ubicacion * 1]);
+
+                                                            // Retornar ubicacion separada LNG LAT
+                                                            let ubicacion= [];
+                                                            function  dividirCadena (cadena,separador) {
+                                                                  let arrayDeCadenas = cadena.split(separador);
+                                                                  for (let i = 0; i < arrayDeCadenas.length; i++) {
+                                                                        ubicacion.push(arrayDeCadenas[i]);
+                                                                  }
+                                                            }
+                                                            dividirCadena(response.data[i].ubicacion, ",");
+                                                            console.log(ubicacion);
+
+                                                            // recolocando el marcado en el mapa
+                                                            marker.setLngLat([ubicacion[0], ubicacion[1]]);
                   
                                                       }
                                                 })
