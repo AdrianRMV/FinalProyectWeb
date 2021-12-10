@@ -1,0 +1,66 @@
+DROP DATABASE IF EXISTS  `baches`;
+create database `baches`;
+use baches;
+
+-- REPORTES
+CREATE TABLE reportes(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    estatus ENUM ('Enviado', 'Aceptado', 'Atendiendo', 'Solucionado', 'Rechazado'),
+    titulo VARCHAR (50) NOT NULL,
+    descripcion VARCHAR (180) NOT NULL,
+    fecha_creacion DATETIME, -- NOT NULL
+    foto VARCHAR (100),
+    latitud FLOAT, -- NOT NULL
+    longitud FLOAT, -- NOT NULL
+    usuario_id INT,
+    CONSTRAINT FK_REPORTES_ID_USUARIOS
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+)ENGINE=INNODB;
+
+-- ROLES DE USUARIO
+create table roles (
+	id_rol int auto_increment not null,
+    rol varchar(10) not null,
+    primary key(id_rol)
+);
+-- USUARIOS 
+create table usuario(
+	id int not null auto_increment,
+    id_rol int not null,
+    name varchar (45) not null,
+    lastname_one varchar (45) not null,
+    lastname_two varchar (45),
+    email varchar (100) not null,
+    password varchar (40) not null,
+    primary key(id),
+    foreign key (id_rol) references roles(id_rol)
+);
+
+
+-- ROL (1) : CUENTA ADMIN
+-- ROL (2) : CUENTA NORMAL
+
+insert into roles(rol) values("admin");
+insert into roles(rol) values("normal");
+
+
+DELIMITER //
+CREATE PROCEDURE insert_user(
+	IN _id_rol int,
+	   _name varchar(45),
+	   _lastname_one varchar(45),
+	   _lastname_two varchar(45),
+       _email varchar(100),
+       _password varchar(40)
+)BEGIN
+	INSERT INTO usuario (id_rol,name,lastname_one,lastname_two,email,password)
+    values (_id_rol,_name,_lastname_one,_lastname_two,_email,_password);
+END
+// DELIMITER ;
+
+call insert_user(1,"Adrian","Ramirez","Vazquez","a@gmail.com","popolol");
+
+select * from usuario;
+select * from roles;
