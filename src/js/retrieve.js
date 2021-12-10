@@ -20,6 +20,10 @@ if($getReporte){
             })
             .then((response)=>{
                   if (response.status === 200){
+                        
+                        // while(response){
+                        //       console.log(response.data)
+                        // }
                         console.log(response);
                         alert("Me la pelo el reporte");
                         console.log('que pro');

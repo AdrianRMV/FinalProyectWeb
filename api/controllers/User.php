@@ -159,12 +159,24 @@ class User extends Controller
       $descripcion =  $_POST["descripcion"]; */
       
       $query = $this->db->get("SELECT * FROM reportes ");
-      
+      $array = [];
       if ($query) {
-        $response = [
-          "data" => $query[0],
-          "message" => "Datos extraidos correctamente",
-        ];
+        
+          for ($i=0; $i < count($query); $i++) { 
+          $response = [
+            "id" => $query[$i]->id,
+            "estatus" => $query[$i]->estatus,
+            "titulo" => $query[$i]->titulo,
+            "descripcion" => $query[$i]->descripcion,
+            "fecha_creacion" => $query[$i]->fecha_creacion,
+            "foto" => $query[$i]->foto,
+            "ubicacion" => $query[$i]->ubicacion,
+            "id_usuario" => $query[$i]->usuario_id,
+            "message" => "Datos extraidos correctamente",
+          ];
+          array_push($array, $response);
+        }
+        return $array;
       } else {
         // No es correcto
         $this->code = 400;
