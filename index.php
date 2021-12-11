@@ -19,7 +19,6 @@
       <script type="text/javascript"src="/src/js/sidebar-actions.js"></script>
       <script type="text/javascript"src="/src/js/retrieve.js"></script>
       <script type="text/javascript"src="/src/js/report-actions.js"></script>
-      <script src="/src/js/revision-reportes.js"></script>
       <script type="text/javascript" src="/src/js/mapbox.js"></script>
 
 
