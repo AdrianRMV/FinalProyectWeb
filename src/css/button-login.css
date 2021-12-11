@@ -24,3 +24,29 @@
       box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
       transform: translateY(0em);
 }
+
+#btnAceptado{
+      background-color: lightgreen;
+      color: white;
+      border: none;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+}
+
+#btnCancelado {
+      background-color: lightcoral;
+      color: white;
+      border: none;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+}
