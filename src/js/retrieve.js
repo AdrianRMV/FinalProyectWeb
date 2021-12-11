@@ -93,7 +93,7 @@ if ($getReporte) {
                                                             dividirCadena(response.data[0].ubicacion, ",");
                                                             // Si es admin, se muestran los botones
                                                             if (response.data[0].admin == 1) {
-                                                                  $titulopop = response.data[0].titulo;
+                                                                  $titulo = response.data[0].titulo;
                                                                   $descripcion = response.data[0].descripcion;
                                                                   $ubicacion = response.data[0].ubicacion;
                                                                   $estatus = response.data[0].estatus;
@@ -101,50 +101,35 @@ if ($getReporte) {
                                                                   // recolocando el marcado en el mapa
                                                                   marker.setLngLat([ubicacion[0], ubicacion[1]]);
                                                                   if(response.data[0].estatus == "Enviado"){
-                                                                        popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Aceptar</button><button id="btnCancelado">Rechazar</button>`);
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Aceptar</button><button id="btnCancelado">Rechazar</button>`);
                                                                   } else if (response.data[0].estatus == "Aceptado"){
-                                                                        popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAtendiendo">Atender</button><button id="btnCancelado">Rechazar</button>`);
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAtendiendo">Atender</button><button id="btnCancelado">Rechazar</button>`);
                                                                   }else if (response.data[0].estatus == "Atendido"){
-                                                                        popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnSolucionado">Solucionado</button><button id="btnCancelado">Rechazar</button>`);
+                                                                        popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnSolucionado">Solucionado</button><button id="btnCancelado">Rechazar</button>`);
                                                                   }
 
 
+                                                                  map.on('click', (event) => {
+                                                                        console.log(event);
+                                                                        marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  });
+                                                                  // Si es usuario normal
+                                                            } else {
+                                                                  $titulo = response.data[0].titulo;
+                                                                  $descripcion = response.data[0].descripcion;
+                                                                  $ubicacion = response.data[0].ubicacion;
+                                                                  $estatus = response.data[0].estatus;
 
-                                                            $titulopop = response.data[0].titulo;
-                                                            $descripcion = response.data[0].descripcion;
-                                                            $ubicacion = response.data[0].ubicacion;
-                                                            $estatus = response.data[0].estatus;
+                                                                  // recolocando el marcado en el mapa
+                                                                  marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  popup.setHTML(`<h1>${$titulo}</h1> <br><h3>${$descripcion}</h3><br> ${$ubicacion}<br> ${$estatus}`);
 
-                                                            if (response.data[0].admin == 1) {
-                                                            // recolocando el marcado en el mapa
-                                                            marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                            if(response.data[0].estatus == "Enviado"){
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Aceptar</button><button id="btnCancelado">Rechazar</button>`);
+                                                                  map.on('click', (event) => {
+                                                                        console.log(event);
+                                                                        marker.setLngLat([ubicacion[0], ubicacion[1]]);
+                                                                  });
                                                             }
-                                                            if(response.data[0].estatus == "Aceptado"){
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Atender</button><button id="btnCancelado">Rechazar</button>`);
-                                                            }
-                                                            if(response.data[0].estatus == "Atendiendo"){
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus} <br><button id="btnAceptado">Solucionado</button><button id="btnCancelado">Rechazar</button>`);
-                                                            }
-                                                            if(response.data[0].estatus == "Rechazado"){
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus}`);
-                                                            }
-                                                            if(response.data[0].estatus == "Solucionado"){
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus}`);
-                                                            }
-
-                                                            
-                                                      }else{
-                                                            marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                            popup.setHTML(`<p style="font-weight:1000;font-size:18px">${$titulopop}</p> <br><p style="word-wrap:Break-word">${$descripcion}</p><br> ${$ubicacion}<br> ${$estatus}`);
-                                                            
                                                       }
-                                                      map.on('click', (event) => {
-                                                            console.log(event);
-                                                            marker.setLngLat([ubicacion[0], ubicacion[1]]);
-                                                      });
-                                                }
                                                 })
                                                 .catch((error) => {
                                                       if (error.response) {
