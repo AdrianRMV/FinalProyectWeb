@@ -73,13 +73,19 @@ END$$
 
 $$ DELIMITER ;
 
+-- USUARIO ADMIN
 call insert_user(1,"Adrian","Ramirez","Vazquez","a@gmail.com","popolol");
+-- USUARIO NORMAL
+call insert_user(2,"Annel","Ramirez","Vazquez","b@gmail.com","popolol");
 
-INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Enviado');
-INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Aceptado');
-INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Atendiendo');
-INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Rechazado');
-INSERT INTO reportes (titulo,descripcion,estatus) VALUES ('pito','aaa','Solucionado');
+-- REPORTES
+INSERT INTO reportes (titulo,descripcion,estatus, ubicacion) VALUES ('Bache en calle Colima','Por las recientes lluvias se hizo un hoyo en la calle y ocupamos que lo tapen','Aceptado','-110.3204758123491,24.135057466420534');
+
+INSERT INTO reportes (titulo,descripcion,estatus, ubicacion) VALUES ('Choque en el malecón','Un auto chocó contra un poste de luz y lo tumbó','Atendiendo','-110.31647841744697,24.163708583463347');
+
+INSERT INTO reportes (titulo,descripcion,estatus, ubicacion) VALUES ('Se me cayeron 10 pesos en el oxxo','Me avisan si los encuentran','Rechazado','-110.30879939241517,24.147682353042924');
+
+INSERT INTO reportes (titulo,descripcion,estatus, ubicacion) VALUES ('Señal desgastada','La señal de la calle está desgastada y no se nota el nombre','Solucionado','-110.29681276751441,24.13633075293471');
 
 select * from reportes;
 select * from usuario;
