@@ -1,6 +1,6 @@
 let  marker ="";
 let  popup ="";
-let map="";
+let map ="";
 window.addEventListener("DOMContentLoaded", e =>{
 
   const  inputUbicacion = document.querySelector("#inputUbicacion");
