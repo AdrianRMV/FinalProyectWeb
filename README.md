@@ -1,3 +1,3 @@
 # PROYECTO FINAL WEB Y BASE DE DATOS
 # ADRIAN RAMIREZ VAZQUEZ - KEVIN LIZARRAGA GARCIA
-La base de datos está en la carpeta de others :)
+El script de la base de datos está en la carpeta de others :)
